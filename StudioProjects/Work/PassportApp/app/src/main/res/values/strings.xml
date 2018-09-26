@@ -34,4 +34,6 @@
     <string name="take_photo">Take a Photo</string>
     <string name="choose_from_memory">Choose photo from memory</string>
     <string name="dialog_change_photo">ChangePhotoDialog</string>
+    <string name="profile_images">images</string>
+    <string name="no_data_available">No data available</string>
 </resources>

@@ -2,11 +2,13 @@ package com.passport.venkatgonuguntala.passportapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,8 @@ import com.passport.venkatgonuguntala.passportapp.Util.SortByAgeDescending;
 import com.passport.venkatgonuguntala.passportapp.Util.SortByNameAscending;
 import com.passport.venkatgonuguntala.passportapp.Util.SortByNameDescending;
 import com.passport.venkatgonuguntala.passportapp.model.PersonProfile;
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -62,19 +66,30 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         public TextView nameLabel;
         public TextView ageLabel;
         public View rootView;
+        public ImageView imageView;
 
         public ProfileViewHolder(View itemView) {
             super(itemView);
             rootView = itemView;
             nameLabel = rootView.findViewById(R.id.textViewName);
             ageLabel = rootView.findViewById(R.id.textViewAge);
+            imageView = rootView.findViewById(R.id.listImageView);
         }
 
         public void bindHolder(final PersonProfile profile, final int position) {
+            final String color;
             //TODO: need to check the gender and handle the color condition
+            if(profile.getGender().equalsIgnoreCase("male")) {
+                color = "#0000FF";
+                rootView.setBackgroundColor(Color.parseColor(color));
+            } else {
+                color = "#FFC0CB";
+                rootView.setBackgroundColor(Color.parseColor(color));
+            }
 
             nameLabel.setText(profile.getName());
             ageLabel.setText(profile.getAge());
+            Picasso.get().load(profile.getImage()).into(imageView);
             rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -85,14 +100,11 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
                     intent.putExtra("gender", profile.getGender());
                     intent.putExtra("hobbies", profile.getHobie());
                     intent.putExtra("id", profile.getId());
+                    intent.putExtra("image", profile.getImage());
+                    intent.putExtra("color", color);
                     context.startActivity(intent);
                 }
             });
-            //TODO: sample code to set the image
-            /*Glide.with(context)
-                    .load(contact.getImage())
-                    .apply(RequestOptions.circleCropTransform())
-                    .into(holder.thumbnail);*/
         }
     }
 

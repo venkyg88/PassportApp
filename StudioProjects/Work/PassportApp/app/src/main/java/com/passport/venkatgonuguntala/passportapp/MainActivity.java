@@ -11,12 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.passport.venkatgonuguntala.passportapp.Util.Constant;
 import com.passport.venkatgonuguntala.passportapp.adapter.ProfileAdapter;
 import com.passport.venkatgonuguntala.passportapp.model.PersonProfile;
 import java.util.ArrayList;
@@ -27,8 +29,9 @@ public class MainActivity extends AppCompatActivity  {
     //private ListView listViewProfiles;
     private RecyclerView recyclerViewProfiles;
     private DatabaseReference databaseProfiles;
-    private List<PersonProfile> personProfileList;
+    private ArrayList<PersonProfile> personProfileList;
     private ProfileAdapter adapter;
+    private TextView emptyView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +43,10 @@ public class MainActivity extends AppCompatActivity  {
         // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
 
-        recyclerViewProfiles = (RecyclerView) findViewById(R.id.recycle_view_profiles);
-        databaseProfiles = FirebaseDatabase.getInstance().getReference(getString(R.string.dbnode_profiles));
+        recyclerViewProfiles = findViewById(R.id.recycle_view_profiles);
+        databaseProfiles = FirebaseDatabase.getInstance().getReference(Constant.DATABASE_PATH_UPLOADS);
         personProfileList = new ArrayList<>();
+        emptyView = findViewById(R.id.empty_view);
 
 
 
@@ -120,6 +124,7 @@ public class MainActivity extends AppCompatActivity  {
                                 break;
             case R.id.action_sort_clear:
             case R.id.action_filter_clear:
+                checkAvailableData(personProfileList);
                 adapter.clearSort();break;
         }
         return super.onOptionsItemSelected(item);
@@ -127,12 +132,13 @@ public class MainActivity extends AppCompatActivity  {
 
 
     public void filter(String gender){
+
         ArrayList<PersonProfile> profilesFiltered = new ArrayList<>();
         for (PersonProfile profiles : personProfileList) {
             if (gender.equalsIgnoreCase(profiles.getGender()))
                 profilesFiltered.add(profiles);
         }
-        Toast.makeText(getApplicationContext(), profilesFiltered.get(1).getName(),Toast.LENGTH_LONG).show();
+        checkAvailableData(profilesFiltered);
         adapter.filterList(profilesFiltered);
     }
 
@@ -150,6 +156,17 @@ public class MainActivity extends AppCompatActivity  {
 
     private void sortByAgeDescending() {
         adapter.sortByAgeDescending();
+    }
+
+    private void checkAvailableData(ArrayList<PersonProfile> personProfileList) {
+        if(personProfileList.isEmpty()) {
+            recyclerViewProfiles.setVisibility(View.GONE);
+            emptyView.setVisibility(View.VISIBLE);
+        } else {
+            recyclerViewProfiles.setVisibility(View.VISIBLE);
+            emptyView.setVisibility(View.GONE);
+            //TODO: have to implement- The list should be sorted by ID, ascending by default. (clear sort)
+        }
     }
 
 }
