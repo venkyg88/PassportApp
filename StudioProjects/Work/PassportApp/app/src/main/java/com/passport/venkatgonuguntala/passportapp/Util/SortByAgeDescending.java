@@ -1,0 +1,21 @@
+package com.passport.venkatgonuguntala.passportapp.Util;
+
+import com.passport.venkatgonuguntala.passportapp.model.PersonProfile;
+
+import java.util.Comparator;
+
+/**
+ * Created by venkatgonuguntala on 9/20/18.
+ */
+
+public class SortByAgeDescending implements Comparator<PersonProfile> {
+
+
+    @Override
+    public int compare(PersonProfile o1, PersonProfile o2) {
+        if(Integer.valueOf(o1.getAge()) > Integer.valueOf(o2.getAge())) {
+            return -1;
+        }
+        return 1;
+    }
+}

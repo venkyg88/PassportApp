@@ -1,0 +1,58 @@
+{
+  "project_info": {
+    "project_number": "646483310026",
+    "firebase_url": "https://passportapp-d526a.firebaseio.com",
+    "project_id": "passportapp-d526a",
+    "storage_bucket": "passportapp-d526a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646483310026:android:e6c16e5258d50437",
+        "android_client_info": {
+          "package_name": "com.passport.venkatgonuguntala.passportapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646483310026-cv8910mdi87vag6d0salvhrbl12a8lo2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.passport.venkatgonuguntala.passportapp",
+            "certificate_hash": "37dcf8037565c8ed864932b3316061082fd308af"
+          }
+        },
+        {
+          "client_id": "646483310026-qgknfalibjvvq0cods52dl4e6o7oqf1o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQnGDSA_jm4VVg12GKSUEdtL8UPVmKXPI"
+        },
+        {
+          "current_key": "AIzaSyAQnGDSA_jm4VVg12GKSUEdtL8UPVmKXPI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646483310026-qgknfalibjvvq0cods52dl4e6o7oqf1o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

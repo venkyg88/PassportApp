@@ -1,0 +1,75 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.passport.venkatgonuguntala.passportapp.MainActivity">
+    <item
+        android:id="@+id/action_filter"
+        android:icon="@mipmap/ic_filter"
+        android:title="@string/filter"
+        app:showAsAction="always">
+
+        <menu>
+
+            <item
+                android:id="@+id/action_filter_female"
+                android:icon="@mipmap/ic_female"
+                android:title="@string/female"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_filter_male"
+                android:icon="@mipmap/ic_male"
+                android:title="@string/male"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_filter_clear"
+                android:icon="@mipmap/ic_filter_clear"
+                android:title="@string/clear_filter"
+                app:showAsAction="never" />
+
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/action_sort"
+        android:icon="@mipmap/ic_sort"
+        android:title="@string/sort"
+        app:showAsAction="always">
+
+        <menu>
+
+            <item
+                android:id="@+id/action_sort_ascending_name"
+                android:icon="@mipmap/ic_sort_asc"
+                android:title="@string/by_name_asc"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_sort_descending_name"
+                android:icon="@mipmap/ic_sort_des"
+                android:title="@string/by_name_des"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_sort_ascending_age"
+                android:icon="@mipmap/ic_sort_asc"
+                android:title="@string/by_age_asc"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_sort_descending_age"
+                android:icon="@mipmap/ic_sort_des"
+                android:title="@string/by_age_des"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_sort_clear"
+                android:icon="@mipmap/ic_clear_list"
+                android:title="@string/clear_sort"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+
+</menu>
