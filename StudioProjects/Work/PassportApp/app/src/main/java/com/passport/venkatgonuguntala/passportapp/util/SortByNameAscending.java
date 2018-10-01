@@ -1,4 +1,4 @@
-package com.passport.venkatgonuguntala.passportapp.Util;
+package com.passport.venkatgonuguntala.passportapp.util;
 
 import com.passport.venkatgonuguntala.passportapp.model.PersonProfile;
 
@@ -12,7 +12,7 @@ public class SortByNameAscending implements Comparator<PersonProfile> {
     @Override
     public int compare(PersonProfile o1, PersonProfile o2) {
 
-        if (o1.getName() == (o2.getName())){
+        if (o1.getName().equals(o2.getName())){
             return 0;
         } if (o1.getName() == null) {
             return -1;

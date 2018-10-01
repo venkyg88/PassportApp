@@ -2,23 +2,22 @@ package com.passport.venkatgonuguntala.passportapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.passport.venkatgonuguntala.passportapp.CreateProfileActivity;
-import com.passport.venkatgonuguntala.passportapp.ProfileViewActivity;
+import com.passport.venkatgonuguntala.passportapp.ui.ProfileViewActivity;
 import com.passport.venkatgonuguntala.passportapp.R;
-import com.passport.venkatgonuguntala.passportapp.Util.SortByAgeAscending;
-import com.passport.venkatgonuguntala.passportapp.Util.SortByAgeDescending;
-import com.passport.venkatgonuguntala.passportapp.Util.SortByNameAscending;
-import com.passport.venkatgonuguntala.passportapp.Util.SortByNameDescending;
+import com.passport.venkatgonuguntala.passportapp.util.Constant;
+import com.passport.venkatgonuguntala.passportapp.util.SortByAgeAscending;
+import com.passport.venkatgonuguntala.passportapp.util.SortByAgeDescending;
+import com.passport.venkatgonuguntala.passportapp.util.SortByNameAscending;
+import com.passport.venkatgonuguntala.passportapp.util.SortByNameDescending;
 import com.passport.venkatgonuguntala.passportapp.model.PersonProfile;
 import com.squareup.picasso.Picasso;
 
@@ -60,7 +59,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
     public int getItemCount() {
         return profiles.size();
     }
-
+    
     public class ProfileViewHolder extends RecyclerView.ViewHolder{
 
         public TextView nameLabel;
@@ -77,31 +76,32 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         }
 
         public void bindHolder(final PersonProfile profile, final int position) {
-            final String color;
-            //TODO: need to check the gender and handle the color condition
-            if(profile.getGender().equalsIgnoreCase("male")) {
-                color = "#0000FF";
-                rootView.setBackgroundColor(Color.parseColor(color));
+            final int color;
+
+            if(profile.getGender().equalsIgnoreCase(context.getResources().getString(R.string.male))) {
+                color = ContextCompat.getColor(context, R.color.colorBlue);
+                rootView.setBackgroundColor(color);
             } else {
-                color = "#FFC0CB";
-                rootView.setBackgroundColor(Color.parseColor(color));
+                color = ContextCompat.getColor(context, R.color.colorPink);
+                rootView.setBackgroundColor(color);
             }
 
             nameLabel.setText(profile.getName());
             ageLabel.setText(profile.getAge());
             Picasso.get().load(profile.getImage()).into(imageView);
+
             rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, position+"",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(context, ProfileViewActivity.class);
-                    intent.putExtra("name", profile.getName());
-                    intent.putExtra("age", profile.getAge());
-                    intent.putExtra("gender", profile.getGender());
-                    intent.putExtra("hobbies", profile.getHobie());
-                    intent.putExtra("id", profile.getId());
-                    intent.putExtra("image", profile.getImage());
-                    intent.putExtra("color", color);
+                    intent.putExtra(Constant.NAME, profile.getName());
+                    intent.putExtra(Constant.AGE, profile.getAge());
+                    intent.putExtra(Constant.GENDER, profile.getGender());
+                    intent.putExtra(Constant.HOBBIES, profile.getHobie());
+                    intent.putExtra(Constant.ID, profile.getId());
+                    intent.putExtra(Constant.IMAGE, profile.getImage());
+                    intent.putExtra(Constant.COLOR, color);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 }
             });
@@ -133,7 +133,6 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         notifyDataSetChanged();
     }
 
-    //TODO: not working
     public void clearSort() {
         profiles = defaultProfiles;
         notifyDataSetChanged();

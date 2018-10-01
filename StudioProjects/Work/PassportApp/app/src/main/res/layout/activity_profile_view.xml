@@ -6,27 +6,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.passport.venkatgonuguntala.passportapp.CreateProfileActivity">
+    tools:context="com.passport.venkatgonuguntala.passportapp.ui.CreateProfileActivity"
+    tools:layout_editor_absoluteY="81dp">
 
 
     <ImageView
         android:id="@+id/imageContainer"
-        android:layout_width="130dp"
-        android:layout_height="140dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/nameLabel"
-        android:layout_width="89dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
         android:text="@string/text_view_name"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,91 +34,101 @@
 
     <TextView
         android:id="@+id/ageLabel"
-        android:layout_width="89dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
         android:text="@string/text_view_age"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/nameLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
 
     <TextView
         android:id="@+id/genderLabel"
-        android:layout_width="89dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
-        android:text="Gender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_view_gender"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/gender"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageLabel" />
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="89dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageContainer" />
+        app:layout_constraintStart_toEndOf="@+id/nameLabel"
+        app:layout_constraintTop_toTopOf="@+id/nameLabel" />
 
     <TextView
         android:id="@+id/age"
-        android:layout_width="89dp"
+        android:layout_width="0dp"
         android:layout_height="20dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
+        android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toTopOf="@+id/ageLabel" />
 
     <TextView
         android:id="@+id/gender"
-        android:layout_width="89dp"
+        android:layout_width="0dp"
         android:layout_height="20dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
+        android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/age" />
+        app:layout_constraintStart_toStartOf="@+id/age"
+        app:layout_constraintTop_toTopOf="@+id/genderLabel" />
 
     <Button
         android:id="@+id/save"
-        android:layout_width="0dp"
-        android:layout_height="38dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:text="Save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextHobbies"
-        app:layout_constraintTop_toBottomOf="@+id/gender" />
+        android:layout_width="141dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="236dp"
+        android:layout_marginStart="40dp"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextHobbies" />
 
     <EditText
         android:id="@+id/editTextHobbies"
-        android:layout_width="211dp"
-        android:layout_height="76dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textMultiLine"
-        app:layout_constraintEnd_toStartOf="@+id/save"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/genderLabel" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gender"
+        app:layout_constraintTop_toBottomOf="@+id/gender" />
 
     <Button
         android:id="@+id/delete"
         android:layout_width="0dp"
-        android:layout_height="38dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Delete"
+        android:text="@string/delete"
+        app:layout_constraintBottom_toBottomOf="@+id/save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextHobbies"
-        app:layout_constraintTop_toBottomOf="@+id/save" />
+        app:layout_constraintStart_toEndOf="@+id/save"
+        app:layout_constraintTop_toTopOf="@+id/save" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="40dp"
+        android:text="@string/hobbies"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextHobbies"
+        app:layout_constraintEnd_toEndOf="@+id/genderLabel"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -5,16 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.passport.venkatgonuguntala.passportapp.CreateProfileActivity">
+    tools:context="com.passport.venkatgonuguntala.passportapp.ui.CreateProfileActivity">
 
 
     <ImageView
         android:id="@+id/imageViewProfile"
-        android:layout_width="120dp"
+        android:layout_width="0dp"
         android:layout_height="120dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:adjustViewBounds="false"
+        app:layout_constraintEnd_toStartOf="@+id/chooseImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_camera" />
@@ -28,7 +30,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="@string/text_view_name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,27 +41,24 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="115dp"
-        android:layout_height="46dp"
+        android:layout_width="137dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextAge"
         app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 
     <EditText
         android:id="@+id/editTextAge"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Age"
+        android:hint="@string/text_view_age"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintEnd_toStartOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 
@@ -67,11 +66,11 @@
         android:id="@+id/editTextHobbies"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Hobbies"
+        android:hint="@string/hobbies"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.052"
@@ -85,7 +84,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="Submit"
+        android:text="@string/submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextHobbies" />
@@ -94,14 +93,10 @@
         android:id="@+id/chooseImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="Choose Image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.572"
-        app:layout_constraintStart_toEndOf="@+id/imageViewProfile"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginEnd="10dp"
+        android:text="@string/choose_image"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewProfile"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

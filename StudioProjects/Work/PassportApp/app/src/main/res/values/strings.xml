@@ -35,5 +35,16 @@
     <string name="choose_from_memory">Choose photo from memory</string>
     <string name="dialog_change_photo">ChangePhotoDialog</string>
     <string name="profile_images">images</string>
-    <string name="no_data_available">No data available</string>
+    <string name="empty_list">No data available</string>
+    <string name="error_title">Oops! Sorry!</string>
+    <string name="error_message">There was a connectivity error/unknown error, please try again later!</string>
+    <string name="error_ok_button_text">OK</string>
+    <string name="profile_delete_title">Are you sure you want to delete?</string>
+    <string name="profile_delete_message">Press OK to continue, otherwise Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="hobbies">Hobbies</string>
+    <string name="text_view_age_number">99</string>
+    <string name="submit">Submit</string>
+    <string name="choose_image">Choose Image</string>
 </resources>
